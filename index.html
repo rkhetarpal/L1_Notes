@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <script src='http://requirejs.org/docs/release/2.2.0/minified/require.js'></script>
+        <script src= "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js" charset="utf-8"></script>
+        <title>
+            A Pleasing way to Add Notes
+        </title>
+    </head>
+    <body ng-app="app" ng-controller="NotesController">
+        <div class="new_note">
+            <table class="addNote">
+                <tr>
+                    <td colspan="4" ng-style="{'background-color': defaultColor}">
+                        Note Title
+                        <span class="changeColor">
+                            <input name="MyColorPicker" ng-model="newColor" type="color" id="MyColorPicker" ng-change="defaultColor = newColor"/>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class=labelTD colspan="3">
+                        <p ng-repeat="label in labels" class="chips chip">
+                            <span class="tab"><span class="glyphicon glyphicon-remove" ng-click="removeLabel(label.labelValue);"></span>{{label.labelValue}}</span>
+                        </p>
+                    </td>
+                    <td>
+                       <span class="addLabel"><span class="glyphicon glyphicon-plus" ng-click="addLabel();"></span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <span class="noteDesc">Note Description</span>
+                    </td>
+                    <td>
+                       <table>
+                           <tr>
+                               <td>
+                                   <span class="icon-indent"><span class="glyphicon glyphicon-globe"></span>Location</span>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <span class="icon-indent"><span class="glyphicon glyphicon-calendar"></span>Time</span>
+                               </td>
+                           </tr>
+                       </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <div class="noteSections">
+                           Click here to add a section...
+                            <ul class="sub-section">
+                                <li>
+                                    <span class="icon-indent"><span class="glyphicon glyphicon-tasks"></span></span>Sub-tasks
+                                </li>
+                                <li>
+                                    <span class="icon-indent"><span class="glyphicon glyphicon-comment"></span></span>Text-field
+                                </li>
+                                <li>
+                                    <span class="icon-indent"><span class="glyphicon glyphicon-picture"></span></span>Image
+                                </li>
+                                <li>
+                                    <span class="icon-indent"><span class="glyphicon glyphicon-link"></span></span>Hyperlinks
+                                </li>
+                                <li>
+                                    <span class="icon-indent"><span class="glyphicon glyphicon-file"></span></span>Files
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="view_one_note">
+            View One note
+        </div>
+        <div class="view_notes">
+            View All Notes
+        </div>
+        <div ng-if="labelAddition" class="addLabelToNote">
+            Add Label functionality
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>

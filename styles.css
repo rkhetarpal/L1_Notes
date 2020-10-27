@@ -1,0 +1,64 @@
+html {
+    background: #fff;
+}
+.changeColor {
+    float:right;
+    border:none;
+}
+#MyColorPicker {
+    height:1.5rem;
+    width:1.5rem;
+    border:none;
+}
+.btn-group-lg>.btn, .btn-lg {
+    padding: 5px 5px;
+    font-size: 14px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+}
+.btn-info {
+    color: #fff;
+    background-color: #daeaf3;
+    border-color: #161717;
+}
+.addLabel {
+    float:right;
+}
+td.chips{
+    margin:0.8rem;
+}
+.chips {
+    display:inline-block;
+    padding: 0.25rem;
+    font-size: 12px;
+    border: #b3b3b3 solid 0.13rem;
+    border-radius: 25px;
+}
+.chip{
+    margin-right:0.25rem;
+}
+.labelTD{
+    padding-top:1rem;
+}
+.tab{
+    padding-right:1rem;
+}
+.glyphicon{
+    padding-right:0.5rem;
+    padding-left:0.5rem;
+}
+
+.sub-section{
+    list-style:none;
+}
+li.sub-section:before{
+	content: "\e067";
+}
+.icon-indent{
+	margin-left: -20px;
+	margin-right: 2.5px;
+}	
+.addNote {
+    outline: solid black 0.01rem;
+    margin: 2rem;
+}

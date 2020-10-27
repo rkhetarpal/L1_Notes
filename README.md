@@ -6,5 +6,3 @@
 6. Users should be able to search a note based on a keyword.
 7. Users should be able to sort and filter using date and time information.
 8. To make the project even more challenging display a calendar layout so that the user can click on any date to view the notes of that particular day.
-
-URL - https://www.codingninjas.com/blog/2020/07/03/10-web-development-projects-in-2020/
