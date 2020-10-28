@@ -15,11 +15,23 @@
         </title>
     </head>
     <body ng-app="app" ng-controller="NotesController">
-        <div class="new_note">
+	<div class="addButtons">
+		<table>
+			<tr>
+				<td class="chips utilityAlign" ng-click="openMenu();"><span class="glyphicon glyphicon-menu-hamburger"></span></td>
+			</tr>
+			<tr ng-if="menuOpened">
+				<td class="chips chip utilityAlign" ng-click="addNewNote();">Add Note</td>
+				<td class="chips chip utilityAlign">Search Note</td>
+				<td class="chips chip utilityAlign" ng-click="closeMenu();">Close</td>
+			</tr>
+		</table>
+	</div>
+        <div class="new_note" ng-if="noteAdd">
             <table class="addNote">
-                <tr>
-                    <td colspan="4" ng-style="{'background-color': defaultColor}">
-                        Note Title
+                <tr ng-style="{'background-color': defaultColor}">
+                    <td colspan="4">
+                        <input type="text" ng-model="noteTitle" placeholder="Title" class="noteTitleText" ng-style="{'background-color': defaultColor}"/>
                         <span class="changeColor">
                             <input name="MyColorPicker" ng-model="newColor" type="color" id="MyColorPicker" ng-change="defaultColor = newColor"/>
                         </span>
@@ -27,7 +39,7 @@
                 </tr>
                 <tr>
                     <td class=labelTD colspan="3">
-                        <p ng-repeat="label in labels" class="chips chip">
+                        <p ng-repeat="label in labels" class="chips chip" id="labelPadding">
                             <span class="tab"><span class="glyphicon glyphicon-remove" ng-click="removeLabel(label.labelValue);"></span>{{label.labelValue}}</span>
                         </p>
                     </td>
@@ -37,7 +49,7 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <span class="noteDesc">Note Description</span>
+                        <input type="text" ng-model="noteDescr" placeholder="Description" class="noteTitleText"
                     </td>
                     <td>
                        <table>
@@ -78,6 +90,14 @@
                         </div>
                     </td>
                 </tr>
+				<tr>
+					<td colspan="2" class="saveNote">
+						<button type="button" class="btn btn-success">Save</button>
+					</td>
+					<td colspan="2" class="saveNote">
+						<button type="button" class="btn btn-danger">Cancel</button>
+					</td>
+				</tr>
             </table>
         </div>
         <div class="view_one_note">

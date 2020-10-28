@@ -28,14 +28,12 @@ td.chips{
     margin:0.8rem;
 }
 .chips {
-    display:inline-block;
+    display: inline-block;
     padding: 0.25rem;
     font-size: 12px;
     border: #b3b3b3 solid 0.13rem;
     border-radius: 25px;
-}
-.chip{
-    margin-right:0.25rem;
+    width: 80px;
 }
 .labelTD{
     padding-top:1rem;
@@ -61,4 +59,49 @@ li.sub-section:before{
 .addNote {
     outline: solid black 0.01rem;
     margin: 2rem;
+    width: 380px;
+    table-layout: fixed;
+}
+.noteTitleText {
+    border: medium none;
+    font-family: 'ProximaNova-Bold';
+    height: 30px;
+    outline: medium none;
+    width: 350px;
+    padding: 0.5rem;
+	font-size:large;
+}
+.saveNote {
+    padding-left: 75px;
+    padding-bottom: 10px;
+}
+.btn {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 6px;
+}
+.utilityAlign {
+	text-align:center;
+}
+p#labelPadding {
+	margin:0.25rem;
+}
+.noteSections {
+    padding: 0.5rem;
 }
