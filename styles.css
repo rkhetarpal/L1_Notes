@@ -1,107 +1,164 @@
 html {
-    background: #fff;
+	background-image:url('notes_bckg_2.jpg');
+	position:relative;
 }
-.changeColor {
-    float:right;
-    border:none;
+.topPanel {
+    background-color: #3d0b0b;
+    color: antiquewhite;
+    height: 80px;
+    width: 100%;
+    font-size: 25px;
+    padding-top: 20px;
 }
-#MyColorPicker {
-    height:1.5rem;
-    width:1.5rem;
-    border:none;
+.header {
+	padding-left:550px;
+	text-align: center;
 }
-.btn-group-lg>.btn, .btn-lg {
-    padding: 5px 5px;
-    font-size: 14px;
-    line-height: 1.3333333;
-    border-radius: 6px;
+.container {
+    opacity: 85%;
+    background-color: #3d0b0b;
+    color: antiquewhite;
+    position: absolute;
+    margin-left: 11.47%;
+    padding: 1%;
+    margin-right: 11.47%;
+    margin-top: 5%;
+	margin-bottom:5%;
 }
-.btn-info {
-    color: #fff;
-    background-color: #daeaf3;
-    border-color: #161717;
+.items {
+	display:flex;
 }
-.addLabel {
-    float:right;
+.utility {
+    background-color: #f0e8e3;
+    padding: 0.5rem;
+    margin: 1rem;
+    height: 30rem;
+    width: 100rem;
+    color: black;
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: -webkit-center;
 }
-td.chips{
-    margin:0.8rem;
-}
-.chips {
-    display: inline-block;
-    padding: 0.25rem;
-    font-size: 12px;
-    border: #b3b3b3 solid 0.13rem;
-    border-radius: 25px;
-    width: 80px;
-}
-.labelTD{
-    padding-top:1rem;
-}
-.tab{
-    padding-right:1rem;
-}
-.glyphicon{
-    padding-right:0.5rem;
-    padding-left:0.5rem;
-}
-
-.sub-section{
-    list-style:none;
-}
-li.sub-section:before{
-	content: "\e067";
-}
-.icon-indent{
-	margin-left: -20px;
-	margin-right: 2.5px;
-}	
 .addNote {
-    outline: solid black 0.01rem;
-    margin: 2rem;
-    width: 380px;
-    table-layout: fixed;
+    height: 23rem;
+    width: 34rem;
+    padding-top: 1rem;
+}
+.goBack{
+	float:right;
+}
+.form-control {
+    display: block;
+    width: 95%;
+    height: 56px;
+    padding: 6px 12px;
+    font-size: 18px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    margin-top: 10px;
+}
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding-top: 3rem;
+}
+.to-do-list{
+	padding:1.5rem;
+}
+.checktask {
+    margin: 0.25rem !important;
+    width: 40px;
+    height: 35px;
+}
+.todorow{
+	display:flex;
+}
+.taskItem {
+    width: 24rem;
+    height: 35px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 0.25rem;
+}
+.add-to-do{
+	font-size:18px;
+}
+.add-to-do .glyphicon {
+    font-size: 18px;
+    padding: 0.5rem;
+    font-weight: lighter;
+}
+.deleteTask {
+    padding-top: 1rem;
+    font-size: 2rem;
+    padding-left: 0.5rem;
+}
+.notesList {
+    color: black;
+    font-size: 18px;
+    text-align: left;
+    padding: 2rem;
+    overflow-y: auto;
+    max-height: 23rem;
+}
+.notesList::-webkit-scrollbar {
+    width: 8px;
+  }
+
+.notesList::-webkit-scrollbar-track {
+    border-radius: 8px;
+    color: #9e9ea9;
+  }
+
+.notesList::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background:#9e9ea9;
+  }
+.newNoteBlock {
+    background-color: #f0e8e3;
+    color: black;
+    margin: auto;
+    width: 700px;
 }
 .noteTitleText {
-    border: medium none;
-    font-family: 'ProximaNova-Bold';
-    height: 30px;
-    outline: medium none;
-    width: 350px;
-    padding: 0.5rem;
-	font-size:large;
+    margin: 14%;
 }
-.saveNote {
-    padding-left: 75px;
-    padding-bottom: 10px;
+.noteTitleText input[type="text"] {
+    width: 50rem;
+    height: 4rem;
 }
-.btn {
-    display: inline-block;
-    padding: 4px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 6px;
+.noteDescrText{
+	margin: 14%;
 }
-.utilityAlign {
-	text-align:center;
+.noteDescrText textarea {
+    overflow: auto;
+    height: 20rem;
+    width: 50rem;
 }
-p#labelPadding {
-	margin:0.25rem;
+.saveNoteButton {
+    margin-left: 45%;
 }
-.noteSections {
-    padding: 0.5rem;
+.btn-success {
+    color: #fff;
+    background-color: #3b262d !important;
+    border-color: #100203 !important;
+}
+td.noteTitleTD {
+    padding-bottom: 1rem;
 }

@@ -15,100 +15,61 @@
         </title>
     </head>
     <body ng-app="app" ng-controller="NotesController">
-	<div class="addButtons">
-		<table>
-			<tr>
-				<td class="chips utilityAlign" ng-click="openMenu();"><span class="glyphicon glyphicon-menu-hamburger"></span></td>
-			</tr>
-			<tr ng-if="menuOpened">
-				<td class="chips chip utilityAlign" ng-click="addNewNote();">Add Note</td>
-				<td class="chips chip utilityAlign">Search Note</td>
-				<td class="chips chip utilityAlign" ng-click="closeMenu();">Close</td>
-			</tr>
-		</table>
-	</div>
-        <div class="new_note" ng-if="noteAdd">
-            <table class="addNote">
-                <tr ng-style="{'background-color': defaultColor}">
-                    <td colspan="4">
-                        <input type="text" ng-model="noteTitle" placeholder="Title" class="noteTitleText" ng-style="{'background-color': defaultColor}"/>
-                        <span class="changeColor">
-                            <input name="MyColorPicker" ng-model="newColor" type="color" id="MyColorPicker" ng-change="defaultColor = newColor"/>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class=labelTD colspan="3">
-                        <p ng-repeat="label in labels" class="chips chip" id="labelPadding">
-                            <span class="tab"><span class="glyphicon glyphicon-remove" ng-click="removeLabel(label.labelValue);"></span>{{label.labelValue}}</span>
-                        </p>
-                    </td>
-                    <td>
-                       <span class="addLabel"><span class="glyphicon glyphicon-plus" ng-click="addLabel();"></span></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <input type="text" ng-model="noteDescr" placeholder="Description" class="noteTitleText"
-                    </td>
-                    <td>
-                       <table>
-                           <tr>
-                               <td>
-                                   <span class="icon-indent"><span class="glyphicon glyphicon-globe"></span>Location</span>
-                               </td>
-                           </tr>
-                           <tr>
-                               <td>
-                                   <span class="icon-indent"><span class="glyphicon glyphicon-calendar"></span>Time</span>
-                               </td>
-                           </tr>
-                       </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="4">
-                        <div class="noteSections">
-                           Click here to add a section...
-                            <ul class="sub-section">
-                                <li>
-                                    <span class="icon-indent"><span class="glyphicon glyphicon-tasks"></span></span>Sub-tasks
-                                </li>
-                                <li>
-                                    <span class="icon-indent"><span class="glyphicon glyphicon-comment"></span></span>Text-field
-                                </li>
-                                <li>
-                                    <span class="icon-indent"><span class="glyphicon glyphicon-picture"></span></span>Image
-                                </li>
-                                <li>
-                                    <span class="icon-indent"><span class="glyphicon glyphicon-link"></span></span>Hyperlinks
-                                </li>
-                                <li>
-                                    <span class="icon-indent"><span class="glyphicon glyphicon-file"></span></span>Files
-                                </li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
+        <div class="topPanel">
+            <span class="header">
+                Note Taking - A Pleasing Way to Take Notes
+            </span>
+        </div>
+		<div ng-if="menuOpened" class="container">
+			<div class="items">
+				<div class="utility">
+					<span class="searchNote">Quick To-Do</span>
+					<div class="to-do-list">
+						<span class="todorow" ng-repeat="n in [].constructor(addRow) track by $index"><input class="checktask" type="checkbox"><input class="taskItem" type="text" placeholder="Add Task/Item">
+						<span class="glyphicon glyphicon-trash deleteTask" ng-click="removetodoitem();"></span></span>
+						<span class="add-to-do"><span class='glyphicon glyphicon-plus' ng-click="addtodoitem();"></span>Add Item</span>
+					</div>
+				</div>
+				<div class="utility viewNotes">
+					<span class="searchNote">View Notes</span>
+					<div class="notesList">
+						<ul ng-if="numberOfNotes !=0">
+							<li ng-repeat="note in noteList">
+								{{note.noteTitle}}
+							</li>
+						</ul>
+						<p ng-if="numberOfNotes == 0">No notes added</p>
+					</div>
+				</div>
+				<div class="utility" ng-click="addNote();">
+					<span class="searchNote">Add a Note</span>
+					<img class="addNote" src="addNote_1.jpg"></img>
+				</div>
+			</div>
+		</div>
+		<div ng-if="!menuOpened && newNote" class="container">
+			<table class="newNoteBlock">
 				<tr>
-					<td colspan="2" class="saveNote">
-						<button type="button" class="btn btn-success">Save</button>
-					</td>
-					<td colspan="2" class="saveNote">
-						<button type="button" class="btn btn-danger">Cancel</button>
+					<td colspan="2">
+						<span class="goBack" ng-click="goBack();">
+							<svg width="3rem" height="3rem" viewBox="0 0 16 16" class="bi bi-arrow-90deg-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							  <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z"/>
+							</svg>
+						</span>
 					</td>
 				</tr>
-            </table>
-        </div>
-        <div class="view_one_note">
-            View One note
-        </div>
-        <div class="view_notes">
-            View All Notes
-        </div>
-        <div ng-if="labelAddition" class="addLabelToNote">
-            Add Label functionality
-        </div>
-        <script src="app.js"></script>
+				<tr>
+					<td colspan="4" class="noteTitleTD"><span class="noteTitleText"><input ng-model="noteTitleValue" type="text" placeholder="Note Title"></span></td>
+				<tr>
+				<tr>
+					<td colspan="4"><span class="noteDescrText"><textarea ng-model="noteDescrValue" placeholder="Note Description"></textarea></span></td>
+				<tr>
+				<tr>
+					<td class="noteTitleTD"><button type="button" class="btn btn-success saveNoteButton" ng-click="saveNote(noteTitleValue,noteDescrValue);">Save</button></td>
+				</tr>
+			</table>
+			</div>
+		</div>
+		<script src="app.js"></script>
     </body>
 </html>

@@ -1,38 +1,41 @@
 var app = angular.module('app', []);
 app.controller('NotesController', function ($scope, $http) {
 	
-    $scope.defaultColor='white';
-	$scope.menuOpened=false;
-	$scope.noteAdd=false;
-    $scope.labels=[
-        {"labelValue":"Label 1"},
-        {"labelValue":"Label 2"},
-        {"labelValue":"Label 3"}
-    ];
+	$scope.menuOpened = true;
+	$scope.newNote = false;
+	$scope.addToDo = false;
+	$scope.addRow=1;
 	
-	$scope.utilityButtons = [
-	{'utilityName':'Add Note'},
-	{'utilityName':'Search Note'},
-	{'utilityName':'Close'}
-	];
+	$scope.noteList=[];
 	
-	$scope.notes=[];
+	$scope.numberOfNotes = $scope.noteList.length;
 	
-	$scope.openMenu = function(){
-		$scope.menuOpened=true;
+	$scope.addNote = function(){
+		$scope.menuOpened=false;
+		$scope.newNote=true;
 	};
 	
-	$scope.closeMenu = function(){
-		$scope.menuOpened=false;
+	$scope.goBack = function(){
+		$scope.menuOpened=true;
 	}
 	
-	$scope.addNewNote = function(){
-		$scope.noteAdd=true;
-		$scope.menuOpened=false;
+	$scope.addtodoitem = function(){
+		$scope.addToDo = true;
+		$scope.addRow = $scope.addRow+1;
+	}
+	
+	$scope.removetodoitem = function(){
+		$scope.addRow = $scope.addRow - 1;
+		
 	};
 	
-    $scope.removeLabel = function(labelValue){
-        let index = _.find($scope.labels,function(o){return o.labelValue === labelValue;})
-        $scope.labels.splice(index,1);
-    }
+	$scope.saveNote = function(noteTitleValue,noteDescrValue){
+		$scope.note={};
+		$scope.note.noteTitle = noteTitleValue;
+		$scope.note.noteDescription = noteDescrValue;
+		$scope.noteList.push($scope.note);
+		$scope.menuOpened=true;
+		$scope.numberOfNotes += 1; 
+	}
+	
 });
