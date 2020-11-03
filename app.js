@@ -53,6 +53,7 @@ app.controller('NotesController', function ($scope, $http) {
            $scope.note = _.find($scope.noteList,function(o){return o.noteSerial == $scope.noteItemNumber;});
            $scope.note.noteTitle = noteTitleValue;
            $scope.noteDescription = noteDescrValue;
+           $scope.note.noteCreatDttm = new Date();
            $scope.numberOfNotes = $scope.noteList.length;
            $scope.note={};
         }
