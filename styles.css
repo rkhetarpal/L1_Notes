@@ -207,3 +207,8 @@ td.noteTitleTD {
 .noteHead{
     text-decoration: underline;
 }
+.creatDttm{
+    font-size: 10px;
+    float: right;
+    padding-top: 0.5rem;
+}

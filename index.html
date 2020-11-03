@@ -45,7 +45,7 @@
                                         <span class="glyphicon glyphicon-eye-open viewNote" ng-click="viewFullNote(note.noteSerial);"></span>
                                         &nbsp;
                                         <span class="tooltiptext" ng-if="fullNote && note.noteDescription" id="tooltip">
-                                            <span class="noteHead">{{note.noteTitle}}</span><br>{{note.noteDescription}}
+                                            <span class="noteHead">{{note.noteTitle}}</span><span class="creatDttm">{{note.noteCreatDttm | date : "MMM-dd y hh:mm"}}</span><br>{{note.noteDescription}}
                                         </span>
                                         <span class="glyphicon glyphicon-pencil deleteNote" ng-click="editNote(note.noteSerial);"></span>
                                     </span>

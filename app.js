@@ -44,6 +44,7 @@ app.controller('NotesController', function ($scope, $http) {
             $scope.note.noteSerial=$scope.numberOfNotes;
             $scope.note.noteTitle = noteTitleValue;
             $scope.note.noteDescription = noteDescrValue;
+            $scope.note.noteCreatDttm = new Date();
             $scope.noteList.push($scope.note);
             $scope.numberOfNotes += 1;
             $scope.note={};
